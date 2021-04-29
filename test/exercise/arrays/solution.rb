@@ -2,7 +2,7 @@ module Exercise
   module Arrays
     class << self
       def replace(array)
-        max_elem = quick_sort(array).last
+        max_elem = max(array)
         array.map do |elem|
           if elem.positive?
             max_elem
@@ -35,6 +35,16 @@ module Exercise
         greater = ar.filter { |elem| elem >= pivot }
 
         quick_sort(less) + [pivot] + quick_sort(greater)
+      end
+
+      def max(array)
+        max_elem = array.first
+
+        array.each do |elem|
+          max_elem = elem if elem > max_elem
+        end
+
+        max_elem
       end
     end
   end
