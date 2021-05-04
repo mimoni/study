@@ -27,16 +27,6 @@ module Exercise
         end
       end
 
-      def quick_sort(array)
-        return array if array.size < 2
-
-        pivot, *ar = array
-        less = ar.filter { |elem| elem < pivot }
-        greater = ar.filter { |elem| elem >= pivot }
-
-        quick_sort(less) + [pivot] + quick_sort(greater)
-      end
-
       def max(array)
         max_elem = array.first
 
